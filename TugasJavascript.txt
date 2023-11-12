@@ -1,0 +1,4 @@
+const var1 = 10;
+const var2 = "saya belajar javascript";
+const var3 = 100;
+console.log(var1+var3);
