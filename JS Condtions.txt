@@ -1,0 +1,5 @@
+const person = { firstName: "John", lastName: "Doe" };
+
+// Menampilkan informasi dari objek person ke konsol
+console.log("First Name: " + person.firstName);
+console.log("Last Name: " + person.lastName);
