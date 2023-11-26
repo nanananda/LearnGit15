@@ -1,1 +1,17 @@
-isi file
+describe('Login functionality', () => {
+  beforeEach(() => {
+    // Sebagai contoh, kita kunjungi halaman login sebelum setiap uji
+    cy.visit('http://zero.webappsecurity.com/login.html');
+  });
+
+  it('Should activate "Keep me signed in" checkbox', () => {
+    // Temukan elemen checkbox dengan label "Keep me signed in" dan aktivkan
+    cy.get('#user_remember_me').check();
+
+    // Pastikan bahwa checkbox sudah terpilih
+    cy.get('#user_remember_me').should('be.checked');
+  });
+
+  // Lanjutkan dengan uji lainnya sesuai kebutuhan Anda
+});
+
