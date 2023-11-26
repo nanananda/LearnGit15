@@ -1,0 +1,12 @@
+function myFunction() {
+  alert("Hello World");
+
+  // Lanjutkan dengan langkah-langkah berikutnya
+  console.log("Langkah setelah alert");
+
+  // Contoh: Ganti warna latar belakang body menjadi merah
+  document.body.style.backgroundColor = "red";
+}
+
+// Panggil fungsi myFunction
+myFunction();
