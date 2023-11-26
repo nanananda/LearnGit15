@@ -1,1 +1,18 @@
-isi file
+describe('My First Test', () => {
+  it('clicking "type" shows the right headings', () => {
+    // Mengunjungi halaman pertama
+    cy.visit('https://example.cypress.io');
+
+    // Menambahkan waktu jeda untuk melihat interaksi pada browser
+    cy.pause();
+
+    // Mencari elemen yang mengandung teks 'type' dan melakukan klik
+    cy.contains('type').click();
+
+    // Memastikan URL saat ini mengandung '/commands/actions'
+    cy.url().should('include', '/commands/actions');
+
+    // Mendapatkan elemen input dengan kelas '.action-email', mengetikkan nilai, dan memverifikasi nilai yang diterapkan
+    cy.get('.action-email').type('example@mail.com').should('have.value', 'example@mail.com');
+  });
+});
