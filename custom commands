@@ -1,1 +1,17 @@
-https://docs.google.com/document/d/1II7peLDfTjsq2z2lbhit1B7ZGPTSyaq_/edit?usp=sharing&ouid=114649502806812569219&rtpof=true&sd=true
+// cypress/support/commands.js
+
+Cypress.Commands.add('performPayment', (payee, account, amount) => {
+  // Navigasi ke halaman pembayaran
+  cy.visit('http://zero.webappsecurity.com/bank/pay-bills.html');
+
+  // Isi formulir pembayaran
+  cy.get('#sp_payee').select(payee);
+  cy.get('#sp_account').select(account);
+  cy.get('#sp_amount').type(amount);
+  cy.get('#sp_date').type('2023-12-01'); // Atur tanggal sesuai kebutuhan
+
+    // Verifikasi bahwa pembayaran berhasil
+    cy.get('#alert_content').should('include.text', 'The payment was successfully submitted.');
+  });
+});
+
