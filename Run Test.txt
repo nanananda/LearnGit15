@@ -1,0 +1,27 @@
+Scenario: Verify Homepage Elements
+    Given I visit the Zero Web Security website
+    Then I should see the navigation menu
+    And I should see a prominent heading
+    And I should see a footer with copyright information
+
+// zerowebsecurity_steps.js
+
+Given('I visit the Zero Web Security website', () => {
+  cy.visit('https://www.zerowebsecurity.com');
+});
+
+Then('I should see the navigation menu', () => {
+  cy.get('nav').should('exist');
+  // Add more assertions based on the structure of the navigation menu
+});
+
+Then('I should see a prominent heading', () => {
+  cy.get('h1').should('be.visible');
+  // Add more assertions based on the heading text or structure
+});
+
+Then('I should see a footer with copyright information', () => {
+  cy.get('footer').should('exist');
+  cy.get('footer').contains('Copyright').should('exist');
+  // Add more assertions based on the structure of the footer or copyright text
+});

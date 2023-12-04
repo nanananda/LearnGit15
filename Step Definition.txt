@@ -1,0 +1,45 @@
+// ZeroWebSecurityPage.js
+
+class ZeroWebSecurityPage {
+  visit() {
+    cy.visit('https://www.zerowebsecurity.com');
+  }
+  getNavigationMenu() {
+    return cy.get('nav');
+  }
+  getHeading() {
+    return cy.get('h1');
+  }
+  getFooter() {
+    return cy.get('footer');
+  }
+  getCopyrightText() {
+    return cy.contains('Copyright');
+  }
+}
+export default new ZeroWebSecurityPage();
+
+
+// zerowebsecurity_steps.js
+
+import ZeroWebSecurityPage from './ZeroWebSecurityPage';
+
+Given('I visit the Zero Web Security website', () => {
+  ZeroWebSecurityPage.visit();
+});
+
+Then('I should see the navigation menu', () => {
+  ZeroWebSecurityPage.getNavigationMenu().should('exist');
+  // Add more assertions based on the structure of the navigation menu
+});
+
+Then('I should see a prominent heading', () => {
+  ZeroWebSecurityPage.getHeading().should('be.visible');
+  // Add more assertions based on the heading text or structure
+});
+
+Then('I should see a footer with copyright information', () => {
+  ZeroWebSecurityPage.getFooter().should('exist');
+  ZeroWebSecurityPage.getCopyrightText().should('exist');
+  // Add more assertions based on the structure of the footer or copyright text
+});
