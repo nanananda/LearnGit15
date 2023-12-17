@@ -1,0 +1,18 @@
+describe('Create new User', () => {
+    it('Successfully create new user', () => {
+        var user = {
+            "name": "Eduwork",
+            "job": "Education"
+        }
+
+        // Melakukan permintaan POST
+        cy.request('POST', 'https://reqres.in/api/users', user).then((response) => {
+            // Menambahkan asertion untuk memastikan status respons adalah 201
+            expect(response.status).equal(201);
+
+            // Menambahkan asertion berdasarkan data yang telah tersimpan
+            expect(response.body).to.have.property('name', user.name);
+            expect(response.body).to.have.property('job', user.job);
+        });
+    });
+});
