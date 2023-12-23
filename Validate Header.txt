@@ -1,0 +1,3 @@
+// Asersi untuk memastikan bahwa header content-type sesuai dengan harapan
+    cy.get('@pokemon').its('headers').its('content-type')
+      .should('include', 'application/json; charset=utf-8');
