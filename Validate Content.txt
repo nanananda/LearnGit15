@@ -1,0 +1,7 @@
+cy.request('https://example-api.com/some-endpoint')
+  .as('response')
+  .then((response) => {
+    // Melakukan validasi menggunakan expect
+    expect(response.body.abilities[0].ability.name).to.eq('limber');
+    expect(response.body.abilities[0].ability.url).to.eq('https://pokeapi.co/api/v2/ability/7/');
+  });
